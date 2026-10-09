@@ -11,7 +11,8 @@ async function request(path:string, init?:RequestInit) {
   if(!r.ok) throw new Error(data.detail || "Request failed");
   return data;
 }
-const pretty=(s:string)=>s.replaceAll("_"," ").replace(/\b\w/g,m=>m.toUpperCase());
+const pretty = (s: string) =>
+  s.replace(/_/g, " ").replace(/\b\w/g, (m: string) => m.toUpperCase());
 const date=(s:string)=>new Date(s+"T12:00:00").toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"});
 
 export default function App(){
